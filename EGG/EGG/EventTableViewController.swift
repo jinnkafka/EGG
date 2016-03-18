@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+
+class EventTableViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

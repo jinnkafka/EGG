@@ -11,12 +11,16 @@
 		A32DB4086B3A71FFC980175A /* libPods-EGG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E69041DA0D573A33F2C493A8 /* libPods-EGG.a */; };
 		A6378CECE717AA98C0221ACC /* libPods-EGGUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B7C7A1267B860B33B4EDDF53 /* libPods-EGGUITests.a */; };
 		BFD9689D1C9C89F300C7733C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD9689C1C9C89F300C7733C /* AppDelegate.swift */; };
-		BFD9689F1C9C89F300C7733C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD9689E1C9C89F300C7733C /* ViewController.swift */; };
+		BFD9689F1C9C89F300C7733C /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD9689E1C9C89F300C7733C /* EventTableViewController.swift */; };
 		BFD968A21C9C89F300C7733C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFD968A01C9C89F300C7733C /* Main.storyboard */; };
 		BFD968A41C9C89F300C7733C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFD968A31C9C89F300C7733C /* Assets.xcassets */; };
 		BFD968A71C9C89F300C7733C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFD968A51C9C89F300C7733C /* LaunchScreen.storyboard */; };
 		BFD968B21C9C89F300C7733C /* EGGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD968B11C9C89F300C7733C /* EGGTests.swift */; };
 		BFD968BD1C9C89F400C7733C /* EGGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD968BC1C9C89F400C7733C /* EGGUITests.swift */; };
+		BFD968D01C9C980500C7733C /* CourseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD968CF1C9C980500C7733C /* CourseTableViewController.swift */; };
+		BFD968D21C9C982B00C7733C /* SponsorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD968D11C9C982B00C7733C /* SponsorTableViewController.swift */; };
+		BFD968D41C9C984200C7733C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD968D31C9C984200C7733C /* ProfileViewController.swift */; };
+		BFD968D61C9C987600C7733C /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD968D51C9C987600C7733C /* EventDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,9 +49,9 @@
 		B7C7A1267B860B33B4EDDF53 /* libPods-EGGUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EGGUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD968991C9C89F300C7733C /* EGG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EGG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD9689C1C9C89F300C7733C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BFD9689E1C9C89F300C7733C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BFD9689E1C9C89F300C7733C /* EventTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventTableViewController.swift; path = EGG/EventTableViewController.swift; sourceTree = "<group>"; };
 		BFD968A11C9C89F300C7733C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		BFD968A31C9C89F300C7733C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BFD968A31C9C89F300C7733C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = EGG/Assets.xcassets; sourceTree = "<group>"; };
 		BFD968A61C9C89F300C7733C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BFD968A81C9C89F300C7733C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFD968AD1C9C89F300C7733C /* EGGTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EGGTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +60,11 @@
 		BFD968B81C9C89F400C7733C /* EGGUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EGGUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD968BC1C9C89F400C7733C /* EGGUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EGGUITests.swift; sourceTree = "<group>"; };
 		BFD968BE1C9C89F400C7733C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFD968CC1C9C96A900C7733C /* EGG-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EGG-Bridging-Header.h"; sourceTree = "<group>"; };
+		BFD968CF1C9C980500C7733C /* CourseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseTableViewController.swift; sourceTree = "<group>"; };
+		BFD968D11C9C982B00C7733C /* SponsorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SponsorTableViewController.swift; sourceTree = "<group>"; };
+		BFD968D31C9C984200C7733C /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		BFD968D51C9C987600C7733C /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		C79140D6EB12C94E386CE3BB /* Pods-EGG.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EGG.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EGG/Pods-EGG.debug.xcconfig"; sourceTree = "<group>"; };
 		E69041DA0D573A33F2C493A8 /* libPods-EGG.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EGG.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8512BB7DE76D9F417115DB4 /* Pods-EGGUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EGGUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EGGUITests/Pods-EGGUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +125,8 @@
 			isa = PBXGroup;
 			children = (
 				BFD9689B1C9C89F300C7733C /* EGG */,
+				BFD968CA1C9C924900C7733C /* Controller */,
+				BFD968CB1C9C927400C7733C /* SupportingFiles */,
 				BFD968B01C9C89F300C7733C /* EGGTests */,
 				BFD968BB1C9C89F400C7733C /* EGGUITests */,
 				BFD9689A1C9C89F300C7733C /* Products */,
@@ -138,10 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				BFD9689C1C9C89F300C7733C /* AppDelegate.swift */,
-				BFD9689E1C9C89F300C7733C /* ViewController.swift */,
 				BFD968A01C9C89F300C7733C /* Main.storyboard */,
-				BFD968A31C9C89F300C7733C /* Assets.xcassets */,
-				BFD968A51C9C89F300C7733C /* LaunchScreen.storyboard */,
 				BFD968A81C9C89F300C7733C /* Info.plist */,
 			);
 			path = EGG;
@@ -163,6 +171,28 @@
 				BFD968BE1C9C89F400C7733C /* Info.plist */,
 			);
 			path = EGGUITests;
+			sourceTree = "<group>";
+		};
+		BFD968CA1C9C924900C7733C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BFD9689E1C9C89F300C7733C /* EventTableViewController.swift */,
+				BFD968D51C9C987600C7733C /* EventDetailViewController.swift */,
+				BFD968CF1C9C980500C7733C /* CourseTableViewController.swift */,
+				BFD968D11C9C982B00C7733C /* SponsorTableViewController.swift */,
+				BFD968D31C9C984200C7733C /* ProfileViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		BFD968CB1C9C927400C7733C /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				BFD968A31C9C89F300C7733C /* Assets.xcassets */,
+				BFD968A51C9C89F300C7733C /* LaunchScreen.storyboard */,
+				BFD968CC1C9C96A900C7733C /* EGG-Bridging-Header.h */,
+			);
+			name = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -427,7 +457,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFD9689F1C9C89F300C7733C /* ViewController.swift in Sources */,
+				BFD968D61C9C987600C7733C /* EventDetailViewController.swift in Sources */,
+				BFD968D21C9C982B00C7733C /* SponsorTableViewController.swift in Sources */,
+				BFD9689F1C9C89F300C7733C /* EventTableViewController.swift in Sources */,
+				BFD968D41C9C984200C7733C /* ProfileViewController.swift in Sources */,
+				BFD968D01C9C980500C7733C /* CourseTableViewController.swift in Sources */,
 				BFD9689D1C9C89F300C7733C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,6 +512,7 @@
 				BFD968A61C9C89F300C7733C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = EGG;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -569,10 +604,13 @@
 			baseConfigurationReference = C79140D6EB12C94E386CE3BB /* Pods-EGG.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = EGG/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.spring.EGG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "EGG-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -581,10 +619,12 @@
 			baseConfigurationReference = 7D04B88CE699140D524C0EE3 /* Pods-EGG.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = EGG/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.spring.EGG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "EGG-Bridging-Header.h";
 			};
 			name = Release;
 		};
