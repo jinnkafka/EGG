@@ -60,7 +60,6 @@
 		BFD968B81C9C89F400C7733C /* EGGUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EGGUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD968BC1C9C89F400C7733C /* EGGUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EGGUITests.swift; sourceTree = "<group>"; };
 		BFD968BE1C9C89F400C7733C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BFD968CC1C9C96A900C7733C /* EGG-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EGG-Bridging-Header.h"; sourceTree = "<group>"; };
 		BFD968CF1C9C980500C7733C /* CourseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseTableViewController.swift; sourceTree = "<group>"; };
 		BFD968D11C9C982B00C7733C /* SponsorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SponsorTableViewController.swift; sourceTree = "<group>"; };
 		BFD968D31C9C984200C7733C /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -190,7 +189,6 @@
 			children = (
 				BFD968A31C9C89F300C7733C /* Assets.xcassets */,
 				BFD968A51C9C89F300C7733C /* LaunchScreen.storyboard */,
-				BFD968CC1C9C96A900C7733C /* EGG-Bridging-Header.h */,
 			);
 			name = SupportingFiles;
 			sourceTree = "<group>";
@@ -605,6 +603,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/**";
 				INFOPLIST_FILE = EGG/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.spring.EGG;
@@ -620,6 +619,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/**";
 				INFOPLIST_FILE = EGG/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.spring.EGG;
