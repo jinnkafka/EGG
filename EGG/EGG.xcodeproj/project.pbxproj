@@ -64,6 +64,7 @@
 		BFD968D11C9C982B00C7733C /* SponsorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SponsorTableViewController.swift; sourceTree = "<group>"; };
 		BFD968D31C9C984200C7733C /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BFD968D51C9C987600C7733C /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
+		BFD968DC1C9CA01B00C7733C /* EGG-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EGG-Bridging-Header.h"; sourceTree = "<group>"; };
 		C79140D6EB12C94E386CE3BB /* Pods-EGG.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EGG.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EGG/Pods-EGG.debug.xcconfig"; sourceTree = "<group>"; };
 		E69041DA0D573A33F2C493A8 /* libPods-EGG.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EGG.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8512BB7DE76D9F417115DB4 /* Pods-EGGUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EGGUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EGGUITests/Pods-EGGUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -189,6 +190,7 @@
 			children = (
 				BFD968A31C9C89F300C7733C /* Assets.xcassets */,
 				BFD968A51C9C89F300C7733C /* LaunchScreen.storyboard */,
+				BFD968DC1C9CA01B00C7733C /* EGG-Bridging-Header.h */,
 			);
 			name = SupportingFiles;
 			sourceTree = "<group>";

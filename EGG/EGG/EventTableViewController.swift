@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  EventTableViewController.swift
 //  EGG
 //
 //  Created by Chen Jin on 3/18/16.
@@ -7,9 +7,11 @@
 //
 
 import UIKit
-import Firebase
+
 
 class EventTableViewController: UIViewController {
+    
+    var myRootRef = Firebase(url:"https://eggbase.firebaseio.com/")
 
     override func viewDidLoad() {
         super.viewDidLoad()
