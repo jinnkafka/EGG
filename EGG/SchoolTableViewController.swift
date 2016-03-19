@@ -81,11 +81,13 @@ class SchoolTableViewController: UITableViewController {
             
             let email : String = (userRef.authData.providerData?["email"] as? String)!
             
-            let delimiter = "@"
+//            let delimiter = "@"
+//            
+//            let separatedEmail = email.componentsSeparatedByString(delimiter)
             
-            let separatedEmail = email.componentsSeparatedByString(delimiter)
+//            chatView.passValue = separatedEmail[0]
             
-            chatView.passValue = separatedEmail[0]
+            chatView.passValue = email
             
             chatView.ref = Firebase(url: "\(BASE_URL)/Message/" + schoolName)
             
