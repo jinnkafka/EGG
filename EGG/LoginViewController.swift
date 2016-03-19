@@ -17,7 +17,7 @@
 import Foundation
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate{
     
     // MARK: Constants
      let toAllTabs = "toAllTabs"
@@ -28,12 +28,27 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var password: UITextField!
     
+    @IBOutlet weak var login: UIButton!
+    
     // MARK: Properties
     let ref = Firebase(url: "\(BASE_URL)")
     
     // MARK: UIViewController Lifecycle
+    
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+        
+        self.password.delegate = self;
+        
+        
         
     }
     
@@ -163,6 +178,16 @@ class LoginViewController: UIViewController {
         presentViewController(alert,
             animated: true,
             completion: nil)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField!) -> Bool // called when 'return' key pressed. return NO to ignore.
+    {
+        
+        self.view.endEditing(true)
+        
+        login.sendActionsForControlEvents(.TouchUpInside)
+        
+        return false;
     }
     
     

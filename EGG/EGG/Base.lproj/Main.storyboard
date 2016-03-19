@@ -209,6 +209,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="login" destination="Vnf-4S-Ds7" id="o48-Uz-M5m"/>
                         <outlet property="password" destination="SMh-c5-vfZ" id="R3c-2k-zb6"/>
                         <outlet property="username" destination="JPF-t6-sAy" id="9X9-yk-FN5"/>
                         <segue destination="WZM-FM-pve" kind="presentation" identifier="toAllTabs" id="Ksm-yZ-6bw"/>
@@ -321,10 +322,56 @@
                         <color key="barTintColor" red="0.89411764709999997" green="0.19215686269999999" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="D7W-xU-Axg" kind="relationship" relationship="rootViewController" id="gDF-bv-9bF"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sv0-Rg-9U1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="472" y="-343"/>
+            <point key="canvasLocation" x="512" y="-331"/>
+        </scene>
+        <!--Course Table View Controller-->
+        <scene sceneID="Dyu-5W-PMb">
+            <objects>
+                <tableViewController id="D7W-xU-Axg" customClass="CourseTableViewController" customModule="EGG" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="99" sectionHeaderHeight="28" sectionFooterHeight="28" id="hvS-ZX-5oV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="courseCell" rowHeight="99" id="nHr-v9-L03" customClass="CourseTableViewCell" customModule="EGG" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="99"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nHr-v9-L03" id="Nlo-4s-Rhh">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XID-SW-Far">
+                                            <rect key="frame" x="0.0" y="-9" width="600" height="117"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="XID-SW-Far" firstAttribute="top" secondItem="Nlo-4s-Rhh" secondAttribute="topMargin" constant="-17" id="EFs-mx-kdj"/>
+                                        <constraint firstItem="XID-SW-Far" firstAttribute="centerY" secondItem="Nlo-4s-Rhh" secondAttribute="centerY" id="UPy-Dp-NNk"/>
+                                        <constraint firstItem="XID-SW-Far" firstAttribute="leading" secondItem="Nlo-4s-Rhh" secondAttribute="leading" id="VcH-mA-tRe"/>
+                                        <constraint firstAttribute="trailing" secondItem="XID-SW-Far" secondAttribute="trailing" id="psS-Ln-b25"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="schoolImage" destination="XID-SW-Far" id="dcZ-4c-ePc"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="D7W-xU-Axg" id="adp-yB-wvp"/>
+                            <outlet property="delegate" destination="D7W-xU-Axg" id="hYj-uA-kf6"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="XRE-g9-Cec"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iZq-I7-dNs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="512" y="570"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4b7-Lj-kJX">
