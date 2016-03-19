@@ -831,6 +831,12 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
     UIEdgeInsets insets = UIEdgeInsetsMake(top, 0.0f, bottom, 0.0f);
     self.collectionView.contentInset = insets;
     self.collectionView.scrollIndicatorInsets = insets;
+    
+    BOOL isChineseInputMethod = [self.textInputMode.primaryLanguage hasPrefix:@"zh"];
+    
+    if (self.automaticallyScrollsToMostRecentMessage && isChineseInputMethod) {
+        [self scrollToBottomAnimated:YES];
+    }
 }
 
 #pragma mark - Utilities
