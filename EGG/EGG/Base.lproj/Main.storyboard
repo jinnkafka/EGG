@@ -330,7 +330,7 @@
             </objects>
             <point key="canvasLocation" x="512" y="-331"/>
         </scene>
-        <!--Course Table View Controller-->
+        <!--CHAT-->
         <scene sceneID="Dyu-5W-PMb">
             <objects>
                 <tableViewController id="D7W-xU-Axg" customClass="CourseTableViewController" customModule="EGG" customModuleProvider="target" sceneMemberID="viewController">
@@ -367,7 +367,7 @@
                             <outlet property="delegate" destination="D7W-xU-Axg" id="hYj-uA-kf6"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="XRE-g9-Cec"/>
+                    <navigationItem key="navigationItem" title="CHAT" id="XRE-g9-Cec"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iZq-I7-dNs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
