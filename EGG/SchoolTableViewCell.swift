@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-class CourseTableViewCell: UITableViewCell {
+class SchoolTableViewCell: UITableViewCell {
 
     
     @IBOutlet weak var schoolImage: UIImageView!
@@ -24,8 +24,6 @@ class CourseTableViewCell: UITableViewCell {
         schoolImage.image = relatedImage
         
         self.schoolName = schoolName
-        
-        print(self.schoolName);
         
     }
     

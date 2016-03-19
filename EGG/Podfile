@@ -7,17 +7,23 @@ target 'EGG' do
 
 pod 'Firebase', '>= 2.5.0'
 
+pod 'JSQMessagesViewController', :git => 'https://github.com/jessesquires/JSQMessagesViewController', :branch => 'version_5.3.2_patch'
+
 end
 
 target 'EGGTests' do
 
 pod 'Firebase', '>= 2.5.0'
 
+pod 'JSQMessagesViewController', :git => 'https://github.com/jessesquires/JSQMessagesViewController', :branch => 'version_5.3.2_patch'
+
 end
 
 target 'EGGUITests' do
 
 pod 'Firebase', '>= 2.5.0'
+
+pod 'JSQMessagesViewController', :git => 'https://github.com/jessesquires/JSQMessagesViewController', :branch => 'version_5.3.2_patch'
 
 end
 

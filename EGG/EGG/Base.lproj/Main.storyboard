@@ -333,13 +333,13 @@
         <!--CHAT-->
         <scene sceneID="Dyu-5W-PMb">
             <objects>
-                <tableViewController id="D7W-xU-Axg" customClass="CourseTableViewController" customModule="EGG" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="D7W-xU-Axg" customClass="SchoolTableViewController" customModule="EGG" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="99" sectionHeaderHeight="28" sectionFooterHeight="28" id="hvS-ZX-5oV">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="courseCell" rowHeight="99" id="nHr-v9-L03" customClass="CourseTableViewCell" customModule="EGG" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="courseCell" rowHeight="99" id="nHr-v9-L03" customClass="SchoolTableViewCell" customModule="EGG" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="99"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nHr-v9-L03" id="Nlo-4s-Rhh">
@@ -359,6 +359,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="schoolImage" destination="XID-SW-Far" id="dcZ-4c-ePc"/>
+                                    <segue destination="szN-FB-j1v" kind="show" identifier="schoolToChat" id="tep-aL-dV5"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -372,6 +373,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iZq-I7-dNs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="512" y="570"/>
+        </scene>
+        <!--School Chat View Controller-->
+        <scene sceneID="Ysj-ZK-Dqk">
+            <objects>
+                <viewController id="szN-FB-j1v" customClass="SchoolChatViewController" customModule="EGG" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TX5-Wy-huF"/>
+                        <viewControllerLayoutGuide type="bottom" id="YQD-Lh-bms"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="y8A-0i-ggo">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5aS-8B-Qwy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="512" y="1519"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4b7-Lj-kJX">
