@@ -9,7 +9,7 @@
 import UIKit
 
 
-class SponsorTableViewController: UIViewController {
+class SponsorTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

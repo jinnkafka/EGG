@@ -19,8 +19,12 @@
 		BFD968BD1C9C89F400C7733C /* EGGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD968BC1C9C89F400C7733C /* EGGUITests.swift */; };
 		BFD968D01C9C980500C7733C /* CourseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD968CF1C9C980500C7733C /* CourseTableViewController.swift */; };
 		BFD968D21C9C982B00C7733C /* SponsorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD968D11C9C982B00C7733C /* SponsorTableViewController.swift */; };
-		BFD968D41C9C984200C7733C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD968D31C9C984200C7733C /* ProfileViewController.swift */; };
 		BFD968D61C9C987600C7733C /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD968D51C9C987600C7733C /* EventDetailViewController.swift */; };
+		BFD968DF1C9CA39000C7733C /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD968DE1C9CA39000C7733C /* EventTableViewCell.swift */; };
+		BFD968E11C9CC1FE00C7733C /* SponsorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD968E01C9CC1FE00C7733C /* SponsorTableViewCell.swift */; };
+		BFD968E31C9CCDAE00C7733C /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD968E21C9CCDAE00C7733C /* Event.swift */; };
+		BFD968E51C9CD5A800C7733C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD968E41C9CD5A800C7733C /* Constants.swift */; };
+		BFD968E71C9CD5CF00C7733C /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD968E61C9CD5CF00C7733C /* DataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,9 +66,13 @@
 		BFD968BE1C9C89F400C7733C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFD968CF1C9C980500C7733C /* CourseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseTableViewController.swift; sourceTree = "<group>"; };
 		BFD968D11C9C982B00C7733C /* SponsorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SponsorTableViewController.swift; sourceTree = "<group>"; };
-		BFD968D31C9C984200C7733C /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BFD968D51C9C987600C7733C /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		BFD968DC1C9CA01B00C7733C /* EGG-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EGG-Bridging-Header.h"; sourceTree = "<group>"; };
+		BFD968DE1C9CA39000C7733C /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		BFD968E01C9CC1FE00C7733C /* SponsorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SponsorTableViewCell.swift; sourceTree = "<group>"; };
+		BFD968E21C9CCDAE00C7733C /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		BFD968E41C9CD5A800C7733C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BFD968E61C9CD5CF00C7733C /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		C79140D6EB12C94E386CE3BB /* Pods-EGG.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EGG.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EGG/Pods-EGG.debug.xcconfig"; sourceTree = "<group>"; };
 		E69041DA0D573A33F2C493A8 /* libPods-EGG.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EGG.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8512BB7DE76D9F417115DB4 /* Pods-EGGUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EGGUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EGGUITests/Pods-EGGUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -126,6 +134,8 @@
 			children = (
 				BFD9689B1C9C89F300C7733C /* EGG */,
 				BFD968CA1C9C924900C7733C /* Controller */,
+				BFD968DD1C9CA37200C7733C /* View */,
+				BFD968E81C9CD9B200C7733C /* Model */,
 				BFD968CB1C9C927400C7733C /* SupportingFiles */,
 				BFD968B01C9C89F300C7733C /* EGGTests */,
 				BFD968BB1C9C89F400C7733C /* EGGUITests */,
@@ -180,7 +190,6 @@
 				BFD968D51C9C987600C7733C /* EventDetailViewController.swift */,
 				BFD968CF1C9C980500C7733C /* CourseTableViewController.swift */,
 				BFD968D11C9C982B00C7733C /* SponsorTableViewController.swift */,
-				BFD968D31C9C984200C7733C /* ProfileViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -191,8 +200,27 @@
 				BFD968A31C9C89F300C7733C /* Assets.xcassets */,
 				BFD968A51C9C89F300C7733C /* LaunchScreen.storyboard */,
 				BFD968DC1C9CA01B00C7733C /* EGG-Bridging-Header.h */,
+				BFD968E41C9CD5A800C7733C /* Constants.swift */,
+				BFD968E61C9CD5CF00C7733C /* DataService.swift */,
 			);
 			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		BFD968DD1C9CA37200C7733C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BFD968DE1C9CA39000C7733C /* EventTableViewCell.swift */,
+				BFD968E01C9CC1FE00C7733C /* SponsorTableViewCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		BFD968E81C9CD9B200C7733C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BFD968E21C9CCDAE00C7733C /* Event.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -457,12 +485,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFD968E31C9CCDAE00C7733C /* Event.swift in Sources */,
 				BFD968D61C9C987600C7733C /* EventDetailViewController.swift in Sources */,
 				BFD968D21C9C982B00C7733C /* SponsorTableViewController.swift in Sources */,
 				BFD9689F1C9C89F300C7733C /* EventTableViewController.swift in Sources */,
-				BFD968D41C9C984200C7733C /* ProfileViewController.swift in Sources */,
+				BFD968E11C9CC1FE00C7733C /* SponsorTableViewCell.swift in Sources */,
+				BFD968DF1C9CA39000C7733C /* EventTableViewCell.swift in Sources */,
 				BFD968D01C9C980500C7733C /* CourseTableViewController.swift in Sources */,
 				BFD9689D1C9C89F300C7733C /* AppDelegate.swift in Sources */,
+				BFD968E51C9CD5A800C7733C /* Constants.swift in Sources */,
+				BFD968E71C9CD5CF00C7733C /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

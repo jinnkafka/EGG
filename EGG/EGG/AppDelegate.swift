@@ -17,6 +17,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+//        print("123456")
+//        
+//        let ref = Firebase(url:"https://eggbase.firebaseio.com/Event")
+//        
+//        
+//        ref.queryLimitedToNumberOfChildren(25).observeEventType(FEventType.ChildAdded, withBlock: {(snapshot)
+//            in
+//            
+//            print(snapshot.value.objectForKey("name"));
+//            let name = snapshot.value["name"] as? String
+//            let address = snapshot.value["address"] as? String
+//            
+//            print(name);
+//            
+//            print(address);
+//            
+//            })
+        
+        
+        
         return true
     }
 
