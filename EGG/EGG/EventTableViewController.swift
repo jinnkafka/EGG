@@ -13,10 +13,31 @@ class EventTableViewController: UITableViewController {
     
     var events = [Event]()
     
+    func logout(){
+        
+        let ref = Firebase(url: "\(BASE_URL)")
+        
+        ref.unauth()
+        
+        performSegueWithIdentifier("backToLogin", sender: self)
+        
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        //right bar item
+        var logout = UIBarButtonItem(
+            title: "Log out",
+            style: .Plain,
+            target: self,
+            action: "logout"
+        )
+        
+        self.navigationItem.rightBarButtonItem = logout
     
         DataService.dataService.EVENT_REF.observeEventType(.Value, withBlock: { snapshot in
             

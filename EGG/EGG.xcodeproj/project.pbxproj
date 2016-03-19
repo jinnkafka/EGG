@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0888CF0795E8CAD0DFB375E6 /* libPods-EGGTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA634BB4C116D9683AF71FD /* libPods-EGGTests.a */; };
+		649E53131C9CFA2600828D36 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649E53121C9CFA2600828D36 /* LoginViewController.swift */; };
 		A32DB4086B3A71FFC980175A /* libPods-EGG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E69041DA0D573A33F2C493A8 /* libPods-EGG.a */; };
 		A6378CECE717AA98C0221ACC /* libPods-EGGUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B7C7A1267B860B33B4EDDF53 /* libPods-EGGUITests.a */; };
 		BFD9689D1C9C89F300C7733C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD9689C1C9C89F300C7733C /* AppDelegate.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		0EA634BB4C116D9683AF71FD /* libPods-EGGTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EGGTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		649E53121C9CFA2600828D36 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		64AE3FD712417A4BF3346E25 /* Pods-EGGTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EGGTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EGGTests/Pods-EGGTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7D04B88CE699140D524C0EE3 /* Pods-EGG.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EGG.release.xcconfig"; path = "Pods/Target Support Files/Pods-EGG/Pods-EGG.release.xcconfig"; sourceTree = "<group>"; };
 		925AB18A36D0215B519CC945 /* Pods-EGGTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EGGTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EGGTests/Pods-EGGTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -131,9 +133,18 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		649E53111C9CF9C900828D36 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				649E53121C9CFA2600828D36 /* LoginViewController.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		BFD968901C9C89F300C7733C = {
 			isa = PBXGroup;
 			children = (
+				649E53111C9CF9C900828D36 /* Login */,
 				BFD9689B1C9C89F300C7733C /* EGG */,
 				BFD968CA1C9C924900C7733C /* Controller */,
 				BFD968DD1C9CA37200C7733C /* View */,
@@ -488,6 +499,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				649E53131C9CFA2600828D36 /* LoginViewController.swift in Sources */,
 				BFD968E31C9CCDAE00C7733C /* Event.swift in Sources */,
 				BFD968D61C9C987600C7733C /* EventDetailViewController.swift in Sources */,
 				BFD968D21C9C982B00C7733C /* SponsorTableViewController.swift in Sources */,
