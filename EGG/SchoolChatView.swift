@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-class SchoolChatViewController: JSQMessagesViewController {
+class SchoolChatViewController: JSQMessagesViewController, UIGestureRecognizerDelegate{
     
     var messages = [Message]()
     var avatars = Dictionary<String, UIImage>()
@@ -27,6 +27,12 @@ class SchoolChatViewController: JSQMessagesViewController {
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
+    }
+    
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+
+            return true
+        
     }
     
     func setupFirebase() {
@@ -116,9 +122,12 @@ class SchoolChatViewController: JSQMessagesViewController {
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
+        tap.delegate = self
+        self.collectionView?.addGestureRecognizer(tap)
         
         setupFirebase()
     }
+    
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
