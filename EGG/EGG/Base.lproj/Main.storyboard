@@ -330,7 +330,7 @@
             </objects>
             <point key="canvasLocation" x="512" y="-331"/>
         </scene>
-        <!--Course Table View Controller-->
+        <!--CHAT-->
         <scene sceneID="Dyu-5W-PMb">
             <objects>
                 <tableViewController id="D7W-xU-Axg" customClass="CourseTableViewController" customModule="EGG" customModuleProvider="target" sceneMemberID="viewController">
@@ -343,7 +343,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="99"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nHr-v9-L03" id="Nlo-4s-Rhh">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="98.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XID-SW-Far">
@@ -367,7 +367,7 @@
                             <outlet property="delegate" destination="D7W-xU-Axg" id="hYj-uA-kf6"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="XRE-g9-Cec"/>
+                    <navigationItem key="navigationItem" title="CHAT" id="XRE-g9-Cec"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iZq-I7-dNs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
