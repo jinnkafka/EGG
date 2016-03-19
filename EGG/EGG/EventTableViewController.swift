@@ -85,6 +85,32 @@ class EventTableViewController: UITableViewController {
         }
         
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "eventDetail") {
+            //var event: Event!
+            
+            // Get the cell index for current cell
+            var selectedItems: [AnyObject] = self.tableView.indexPathsForSelectedRows!
+            let selectedItem: NSIndexPath = selectedItems[0] as! NSIndexPath
+            let selectedIndex: Int = selectedItem.row
+            
+            let selectedEvent = events[selectedIndex]
+            
+            // Get event name and detail URL for current cell
+            let eventName: String = selectedEvent.eventName
+            let eventDetail: String = selectedEvent.eventDetail
+            
+            // Set destination view controller
+            let detailView: EventDetailViewController = segue.destinationViewController as! EventDetailViewController
+            
+            // Pass data from current view controller to detail view controller
+            detailView.nameString = eventName
+            detailView.detailString = eventDetail
+
+            
+        }
+    }
 
     
 }

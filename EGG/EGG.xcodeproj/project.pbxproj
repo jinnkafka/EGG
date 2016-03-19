@@ -25,6 +25,7 @@
 		BFD968E31C9CCDAE00C7733C /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD968E21C9CCDAE00C7733C /* Event.swift */; };
 		BFD968E51C9CD5A800C7733C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD968E41C9CD5A800C7733C /* Constants.swift */; };
 		BFD968E71C9CD5CF00C7733C /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD968E61C9CD5CF00C7733C /* DataService.swift */; };
+		BFD968EC1C9CEF2300C7733C /* Sponsor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD968EB1C9CEF2300C7733C /* Sponsor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		BFD968E21C9CCDAE00C7733C /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		BFD968E41C9CD5A800C7733C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BFD968E61C9CD5CF00C7733C /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		BFD968EB1C9CEF2300C7733C /* Sponsor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sponsor.swift; sourceTree = "<group>"; };
 		C79140D6EB12C94E386CE3BB /* Pods-EGG.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EGG.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EGG/Pods-EGG.debug.xcconfig"; sourceTree = "<group>"; };
 		E69041DA0D573A33F2C493A8 /* libPods-EGG.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EGG.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8512BB7DE76D9F417115DB4 /* Pods-EGGUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EGGUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EGGUITests/Pods-EGGUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				BFD968E21C9CCDAE00C7733C /* Event.swift */,
+				BFD968EB1C9CEF2300C7733C /* Sponsor.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				BFD968E31C9CCDAE00C7733C /* Event.swift in Sources */,
 				BFD968D61C9C987600C7733C /* EventDetailViewController.swift in Sources */,
 				BFD968D21C9C982B00C7733C /* SponsorTableViewController.swift in Sources */,
+				BFD968EC1C9CEF2300C7733C /* Sponsor.swift in Sources */,
 				BFD9689F1C9C89F300C7733C /* EventTableViewController.swift in Sources */,
 				BFD968E11C9CC1FE00C7733C /* SponsorTableViewCell.swift in Sources */,
 				BFD968DF1C9CA39000C7733C /* EventTableViewCell.swift in Sources */,

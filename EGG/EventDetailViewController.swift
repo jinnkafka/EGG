@@ -12,14 +12,23 @@ class EventDetailViewController: UIViewController {
     
     @IBOutlet weak var detailWebView: UIWebView!
     
+    var nameString: String?
+    var detailString: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // Set detail controller title
+        self.title = nameString
+        
+        // Load detail web view
+        let requestURL = NSURL(string: detailString!)
+        let request = NSURLRequest(URL: requestURL!)
+        detailWebView.loadRequest(request)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     
