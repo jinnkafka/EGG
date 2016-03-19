@@ -8,31 +8,74 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>JSQMessagesViewController.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>JSQSystemSoundPlayer.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
 		</dict>
 		<key>Pods-EGG.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>Pods-EGGTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 		<key>Pods-EGGUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0953890D0CCBEFEC613C5937415CCC5C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>23F24E8FB21582E9416ADB5C8C795F01</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>4A052B9D9968B3441C499410BDF18C0F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4CADB67A1432ECEA8C90A3BCDB6A8B80</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>569735B422E0E4CEEFC5C6955AFDE3A5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7AB5A64F2759B7BAD5A46A9FF5EE168B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D799E722697D67C0210335E8F5950BAC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
