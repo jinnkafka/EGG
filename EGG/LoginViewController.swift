@@ -16,6 +16,7 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController, UITextFieldDelegate{
     
@@ -30,9 +31,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
     
     @IBOutlet weak var login: UIButton!
     
-    // MARK: Properties
-    let ref = Firebase(url: "\(BASE_URL)")
-    
     // MARK: UIViewController Lifecycle
     
     func dismissKeyboard() {
@@ -43,7 +41,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
         self.password.delegate = self;
@@ -55,22 +53,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        ref.unauth()
-        
-        ref.observeAuthEventWithBlock { (authData) -> Void in
-            
-            if authData != nil {
-                self.performSegueWithIdentifier(self.toAllTabs, sender: nil)
-            }
-            
-        }
+        try! FIRAuth.auth()?.signOut()
+
+        // Lazy-Y: I'm not sure what these lines do.
+//        ref.observeAuthEventWithBlock { (authData) -> Void in
+//            
+//            if authData != nil {
+//                self.performSegueWithIdentifier(self.toAllTabs, sender: nil)
+//            }
+//            
+//        }
     }
     
     // MARK: Actions
     @IBAction func loginDidTouch(sender: AnyObject) {
         
-        ref.authUser(username.text, password: password.text, withCompletionBlock: { (error, auth) -> Void in
-            
+        FIRAuth.auth()?.signInWithEmail(username.text!, password: password.text!, completion: { (user, error) in
             if error != nil {
                 // an error occured while attempting login
                 let alert = UIAlertController(title: "Login Error", message: "Please check your username and password", preferredStyle: UIAlertControllerStyle.Alert)
@@ -82,6 +80,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
             } else {
                 // user is logged in, check authData for data
                 print("Logged in");
+                self.performSegueWithIdentifier(self.toAllTabs, sender: nil)
             }
         })
         
@@ -142,17 +141,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
                     
                     
                 else{
-                    
-                    self.ref.createUser(emailField.text, password: passwordField.text) { (error: NSError!) in
-                        
+                    FIRAuth.auth()?.createUserWithEmail(emailField.text!, password: self.password.text!, completion: { (user, error) in
                         if error == nil {
+                            // Lazy-Y: We don't need to auth user now
                             
-                            self.ref.authUser(emailField.text, password: passwordField.text, withCompletionBlock: { (error, auth) in
-                                
-                            })
+//                            self.ref.authUser(emailField.text, password: passwordField.text, withCompletionBlock: { (error, auth) in
+//                                
+//                            })
                         }
-                    }
-                    
+                    })
                 }
                 
         }
@@ -180,7 +177,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
             completion: nil)
     }
     
-    func textFieldShouldReturn(textField: UITextField!) -> Bool // called when 'return' key pressed. return NO to ignore.
+    func textFieldShouldReturn(textField: UITextField) -> Bool // called when 'return' key pressed. return NO to ignore.
     {
         
         self.view.endEditing(true)

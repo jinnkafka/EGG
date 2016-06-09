@@ -14,9 +14,6 @@ class SchoolTableViewController: UITableViewController {
     
     let schoolImageList: [UIImage] = [UIImage(named: "marshall")!, UIImage(named: "viterbi")!,UIImage(named: "dornsife")!,UIImage(named: "annenberg")!,UIImage(named: "cinema")!]
     
-    let userRef = Firebase(url: "\(BASE_URL)")
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -57,43 +54,43 @@ class SchoolTableViewController: UITableViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "schoolToChat") {
-            
-            
-            // Get the cell index for current cell
-            var selectedItems: [AnyObject] = self.tableView.indexPathsForSelectedRows!
-            let selectedItem: NSIndexPath = selectedItems[0] as! NSIndexPath
-            let selectedIndex: Int = selectedItem.row
-            
-            
-            // Get event name and detail URL for current cell
-            let schoolName: String = schoolList[selectedIndex]
-            
-            // Set destination view controller
-            //var chatView: CourseChatViewController = segue.destinationViewController as! CourseChatViewController
-            let chatView = segue.destinationViewController as! SchoolChatViewController
-            
-            // Pass data from current view controller to detail view controller
-            
-            //chatView.titleString = courseTitle
-            //chatView.ref = ref
-            chatView.title = schoolName
-            
-            let email : String = (userRef.authData.providerData?["email"] as? String)!
-            
-//            let delimiter = "@"
+//        if (segue.identifier == "schoolToChat") {
 //            
-//            let separatedEmail = email.componentsSeparatedByString(delimiter)
-            
-//            chatView.passValue = separatedEmail[0]
-            
-            chatView.passValue = email
-            
-            chatView.ref = Firebase(url: "\(BASE_URL)/Message/" + schoolName)
-            
-            chatView.hidesBottomBarWhenPushed = true
-            
-        }
+//            
+//            // Get the cell index for current cell
+//            var selectedItems: [AnyObject] = self.tableView.indexPathsForSelectedRows!
+//            let selectedItem: NSIndexPath = selectedItems[0] as! NSIndexPath
+//            let selectedIndex: Int = selectedItem.row
+//            
+//            
+//            // Get event name and detail URL for current cell
+//            let schoolName: String = schoolList[selectedIndex]
+//            
+//            // Set destination view controller
+//            //var chatView: CourseChatViewController = segue.destinationViewController as! CourseChatViewController
+//            let chatView = segue.destinationViewController as! SchoolChatViewController
+//            
+//            // Pass data from current view controller to detail view controller
+//            
+//            //chatView.titleString = courseTitle
+//            //chatView.ref = ref
+//            chatView.title = schoolName
+//            
+//            let email : String = (userRef.authData.providerData?["email"] as? String)!
+//            
+////            let delimiter = "@"
+////            
+////            let separatedEmail = email.componentsSeparatedByString(delimiter)
+//            
+////            chatView.passValue = separatedEmail[0]
+//            
+//            chatView.passValue = email
+//            
+//            chatView.ref = Firebase(url: "\(BASE_URL)/Message/" + schoolName)
+//            
+//            chatView.hidesBottomBarWhenPushed = true
+//            
+//        }
     }
 
 

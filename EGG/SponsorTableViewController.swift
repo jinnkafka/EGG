@@ -7,26 +7,26 @@
 //
 
 import UIKit
-
+import FirebaseDatabase
 
 class SponsorTableViewController: UITableViewController {
     
     var sponsors = [Sponsor]()
     
+    let ref = FIRDatabase.database().reference().child("Sponsor")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
-        DataService.dataService.SPONSOR_REF.observeEventType(.Value, withBlock: { snapshot in
-     
+        ref.observeSingleEventOfType(.Value, withBlock:  { (snapshot) in
             // The snapshot is a current look at our jokes data.
             
             print(snapshot.value)
             
             self.sponsors = []
             
-            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+            if let snapshots = snapshot.value as? NSDictionary {
                 
                 for snap in snapshots {
                     
@@ -34,7 +34,7 @@ class SponsorTableViewController: UITableViewController {
                     
                     if let postDictionary = snap.value as? Dictionary<String, AnyObject> {
                         let key = snap.key
-                        let sponsor = Sponsor(key: key, dictionary: postDictionary)
+                        let sponsor = Sponsor(key: key as! String, dictionary: postDictionary)
                         
                         // Items are returned chronologically, but it's more fun with the newest jokes first.
                         

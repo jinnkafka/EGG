@@ -10,8 +10,6 @@ import Foundation
 
 
 class Sponsor {
-    private var _sponsorRef: Firebase!
-    
     private var _sponsorName: String!
     private var _sponsorAddress: String!
     private var _sponsorBenefit: String!
@@ -57,9 +55,6 @@ class Sponsor {
         if let image = dictionary["image"] as? String {
             self._sponsorImage = image
         }
-        
-        
-        self._sponsorRef = DataService.dataService.SPONSOR_REF.childByAppendingPath(self._sponsorName)
     }
     
 }

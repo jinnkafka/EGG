@@ -8,8 +8,6 @@
 
 
 class Event {
-    private var _eventRef: Firebase!
-    
     private var _eventName: String!
     private var _eventAddress: String!
     private var _eventDetail: String!
@@ -63,9 +61,6 @@ class Event {
         if let image = dictionary["image"] as? String {
             self._eventImage = image
         }
-    
-        
-        self._eventRef = DataService.dataService.EVENT_REF.childByAppendingPath(self._eventName)
     }
     
 }
