@@ -10,6 +10,7 @@
 		524E4152CDD47332839C991E /* Pods_EGGTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57BE00FE93B78478F6342E34 /* Pods_EGGTests.framework */; };
 		678F2C801F6D3CC7E37A97CA /* Pods_EGGUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2C50272181FD8F002FE511E /* Pods_EGGUITests.framework */; };
 		97CD80B67D485F208F49C96E /* Pods_EGG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F69C1D59E3B8A977BB36014 /* Pods_EGG.framework */; };
+		FD150D7B1D0A984900BACDBE /* SchoolChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD150D7A1D0A984900BACDBE /* SchoolChatView.swift */; };
 		FD762A751D092447000ED15C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD762A741D092447000ED15C /* LoginViewController.swift */; };
 		FD762A781D092476000ED15C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD762A761D092476000ED15C /* Main.storyboard */; };
 		FD762A791D092476000ED15C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD762A771D092476000ED15C /* Info.plist */; };
@@ -59,6 +60,7 @@
 		7D6A6F05A197F4810131620A /* Pods-EGGUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EGGUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EGGUITests/Pods-EGGUITests.release.xcconfig"; sourceTree = "<group>"; };
 		94C874165B233149F26FD997 /* Pods-EGGTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EGGTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EGGTests/Pods-EGGTests.release.xcconfig"; sourceTree = "<group>"; };
 		F2C50272181FD8F002FE511E /* Pods_EGGUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EGGUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD150D7A1D0A984900BACDBE /* SchoolChatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolChatView.swift; sourceTree = "<group>"; };
 		FD762A741D092447000ED15C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FD762A761D092476000ED15C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		FD762A771D092476000ED15C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				FD762A7B1D092599000ED15C /* EventDetailViewController.swift */,
 				FD762A7C1D092599000ED15C /* SchoolTableViewController.swift */,
 				FD762A7D1D092599000ED15C /* SponsorTableViewController.swift */,
+				FD150D7A1D0A984900BACDBE /* SchoolChatView.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -509,6 +512,7 @@
 				FDC8CCC71D09219100D8C794 /* EGG.xcdatamodeld in Sources */,
 				FD762A801D092599000ED15C /* SchoolTableViewController.swift in Sources */,
 				FD762A881D0925C6000ED15C /* SchoolTableViewCell.swift in Sources */,
+				FD150D7B1D0A984900BACDBE /* SchoolChatView.swift in Sources */,
 				FD762A7E1D092599000ED15C /* EventTableViewController.swift in Sources */,
 				FD762A8F1D0925DD000ED15C /* Message.swift in Sources */,
 				FDC8CCBF1D09219100D8C794 /* AppDelegate.swift in Sources */,

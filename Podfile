@@ -6,7 +6,7 @@ use_frameworks!
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
 pod 'Firebase/Storage'
-pod 'JSQMessagesViewController', :git => 'https://github.com/jessesquires/JSQMessagesViewController', :branch => 'version_5.3.2_patch'
+pod 'JSQMessagesViewController'
 target 'EGG' do
 end
 target 'EGGTests' do

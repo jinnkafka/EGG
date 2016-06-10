@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import JSQMessagesViewController
+import FirebaseAuth
+import FirebaseDatabase
 
 class SchoolTableViewController: UITableViewController {
     
@@ -54,43 +57,44 @@ class SchoolTableViewController: UITableViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if (segue.identifier == "schoolToChat") {
-//            
-//            
-//            // Get the cell index for current cell
-//            var selectedItems: [AnyObject] = self.tableView.indexPathsForSelectedRows!
-//            let selectedItem: NSIndexPath = selectedItems[0] as! NSIndexPath
-//            let selectedIndex: Int = selectedItem.row
-//            
-//            
-//            // Get event name and detail URL for current cell
-//            let schoolName: String = schoolList[selectedIndex]
-//            
-//            // Set destination view controller
-//            //var chatView: CourseChatViewController = segue.destinationViewController as! CourseChatViewController
-//            let chatView = segue.destinationViewController as! SchoolChatViewController
-//            
-//            // Pass data from current view controller to detail view controller
-//            
-//            //chatView.titleString = courseTitle
-//            //chatView.ref = ref
-//            chatView.title = schoolName
-//            
+        if (segue.identifier == "schoolToChat") {
+            
+            
+            // Get the cell index for current cell
+            var selectedItems: [AnyObject] = self.tableView.indexPathsForSelectedRows!
+            let selectedItem: NSIndexPath = selectedItems[0] as! NSIndexPath
+            let selectedIndex: Int = selectedItem.row
+            
+            
+            // Get event name and detail URL for current cell
+            let schoolName: String = schoolList[selectedIndex]
+            
+            // Set destination view controller
+            //var chatView: CourseChatViewController = segue.destinationViewController as! CourseChatViewController
+            let chatView = segue.destinationViewController as! SchoolChatViewController
+            
+            // Pass data from current view controller to detail view controller
+            
+            //chatView.titleString = courseTitle
+            //chatView.ref = ref
+            chatView.title = schoolName
+            
 //            let email : String = (userRef.authData.providerData?["email"] as? String)!
+            let email = FIRAuth.auth()?.currentUser?.email
+            
+//            let delimiter = "@"
 //            
-////            let delimiter = "@"
-////            
-////            let separatedEmail = email.componentsSeparatedByString(delimiter)
-//            
-////            chatView.passValue = separatedEmail[0]
-//            
-//            chatView.passValue = email
-//            
-//            chatView.ref = Firebase(url: "\(BASE_URL)/Message/" + schoolName)
-//            
-//            chatView.hidesBottomBarWhenPushed = true
-//            
-//        }
+//            let separatedEmail = email.componentsSeparatedByString(delimiter)
+            
+//            chatView.passValue = separatedEmail[0]
+            
+            chatView.passValue = email!
+            
+            chatView.messagesRef = FIRDatabase.database().reference().child("Message").child(schoolName) //Firebase(url: "\(BASE_URL)/Message/" + schoolName)
+            
+            chatView.hidesBottomBarWhenPushed = true
+            
+        }
     }
 
 
