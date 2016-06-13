@@ -164,17 +164,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="zhenyanz@usc.edu" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JPF-t6-sAy">
-                                <rect key="frame" x="86" y="182" width="429" height="30"/>
+                                <rect key="frame" x="86" y="178" width="429" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SMh-c5-vfZ">
-                                <rect key="frame" x="86" y="279" width="429" height="30"/>
+                                <rect key="frame" x="86" y="275" width="429" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vnf-4S-Ds7">
-                                <rect key="frame" x="248" y="374" width="103" height="30"/>
+                                <rect key="frame" x="248" y="370" width="103" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="103" id="fmO-bw-02r"/>
                                 </constraints>
@@ -184,7 +184,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gO3-27-ldj">
-                                <rect key="frame" x="249" y="436" width="103" height="30"/>
+                                <rect key="frame" x="249" y="420" width="103" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="103" id="Duw-cp-hfU"/>
                                 </constraints>
@@ -193,16 +193,28 @@
                                     <action selector="signUpDidTouch:" destination="KEN-2r-Cgg" eventType="touchUpInside" id="Mj3-Li-nKR"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chT-nO-cgP">
+                                <rect key="frame" x="247" y="470" width="105" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="105" id="tA9-NW-W8S"/>
+                                </constraints>
+                                <state key="normal" title="Password reset"/>
+                                <connections>
+                                    <action selector="resetAction:" destination="KEN-2r-Cgg" eventType="touchUpInside" id="kgU-wF-avF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="gO3-27-ldj" firstAttribute="top" secondItem="Vnf-4S-Ds7" secondAttribute="bottom" constant="32" id="2OV-Jw-fJV"/>
-                            <constraint firstItem="E5b-ZO-CHo" firstAttribute="top" secondItem="gO3-27-ldj" secondAttribute="bottom" constant="134" id="2aj-f6-KIV"/>
+                            <constraint firstItem="gO3-27-ldj" firstAttribute="top" secondItem="Vnf-4S-Ds7" secondAttribute="bottom" constant="20" id="2OV-Jw-fJV"/>
+                            <constraint firstItem="E5b-ZO-CHo" firstAttribute="top" secondItem="gO3-27-ldj" secondAttribute="bottom" constant="150" id="2aj-f6-KIV"/>
                             <constraint firstItem="JPF-t6-sAy" firstAttribute="leading" secondItem="Dxn-L8-Oi5" secondAttribute="leadingMargin" constant="66" id="D2q-FS-DVC"/>
+                            <constraint firstItem="chT-nO-cgP" firstAttribute="top" secondItem="gO3-27-ldj" secondAttribute="bottom" constant="20" id="EAs-w5-lh7"/>
                             <constraint firstItem="gO3-27-ldj" firstAttribute="centerX" secondItem="SMh-c5-vfZ" secondAttribute="centerX" id="EeS-jh-VSg"/>
                             <constraint firstItem="Vnf-4S-Ds7" firstAttribute="centerX" secondItem="Dxn-L8-Oi5" secondAttribute="centerX" id="QfT-us-Uu3"/>
                             <constraint firstItem="SMh-c5-vfZ" firstAttribute="top" secondItem="JPF-t6-sAy" secondAttribute="bottom" constant="67" id="buH-sl-DWS"/>
                             <constraint firstItem="JPF-t6-sAy" firstAttribute="trailing" secondItem="SMh-c5-vfZ" secondAttribute="trailing" id="exb-4Q-ooy"/>
+                            <constraint firstItem="chT-nO-cgP" firstAttribute="centerX" secondItem="Dxn-L8-Oi5" secondAttribute="centerX" id="pGF-8t-7kW"/>
                             <constraint firstItem="Vnf-4S-Ds7" firstAttribute="top" secondItem="SMh-c5-vfZ" secondAttribute="bottom" constant="65" id="qKO-3S-fbq"/>
                             <constraint firstItem="gO3-27-ldj" firstAttribute="centerX" secondItem="Dxn-L8-Oi5" secondAttribute="centerX" id="rC8-SY-N0O"/>
                             <constraint firstItem="JPF-t6-sAy" firstAttribute="leading" secondItem="SMh-c5-vfZ" secondAttribute="leading" id="vPu-ks-coW"/>

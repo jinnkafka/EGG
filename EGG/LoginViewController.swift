@@ -38,6 +38,35 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
         view.endEditing(true)
     }
     
+    func showTextAlert(title:String, msg:String, doneMsg:String, doneAction: (String) -> Void){
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: .Alert)
+        let sendAction = UIAlertAction(title: "Send", style: .Default) { (action) in
+            let emailField = alert.textFields![0]
+            if self.isValidEmail(emailField.text!){
+                FIRAuth.auth()?.sendPasswordResetWithEmail(emailField.text!, completion: { (error) in
+                    if let error = error{
+                        self.showError(error.localizedDescription)
+                    }
+                    else {
+                        doneAction(doneMsg)
+                    }
+                })
+            }
+            else {
+                self.showEmailError()
+            }
+        }
+        alert.addTextFieldWithConfigurationHandler { (textField) in
+            textField.placeholder = "Enter your usc email"
+        }
+        alert.addAction(sendAction)
+        presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func resetAction(sender: AnyObject) {
+        showTextAlert("Password reset", msg: "Please enter your password", doneMsg: "A password reset email has been delivered to your Email account.", doneAction: showSuccess)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -78,9 +107,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
                 self.presentViewController(alert, animated: true, completion: nil)
                 
             } else {
-                // user is logged in, check authData for data
-                print("Logged in");
-                self.performSegueWithIdentifier(self.toAllTabs, sender: nil)
+                if user?.emailVerified == true{
+                    // user is logged in, check authData for data
+                    print("Logged in");
+                    self.performSegueWithIdentifier(self.toAllTabs, sender: nil)
+                }
+                else {
+                    user?.sendEmailVerificationWithCompletion({ (error) in
+                        if let error = error{
+                            self.showError(error.localizedDescription)
+                        }
+                        else {
+                            self.showError("A verification Email has been sent to your Email. Please verify your Email.")
+                        }
+                    })
+                }
             }
         })
         
@@ -106,6 +147,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
         
     }
     
+    private func showEmailError(){
+        let alert = UIAlertController(title: "Email Address Error", message: "Please check your email address", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func showSuccess(msg:String){
+        let alert = UIAlertController(title: "Done", message: msg, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func showError(msg:String){
+        let alert = UIAlertController(title: "Error", message: msg, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
     
     @IBAction func signUpDidTouch(sender: AnyObject) {
         let alert = UIAlertController(title: "Register",
@@ -119,15 +177,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
                 let passwordField = alert.textFields![1]
                 
                 if(!self.isValidEmail(emailField.text!)){
-                    
-                    let alert = UIAlertController(title: "Email Address Error", message: "Please check your email address", preferredStyle: UIAlertControllerStyle.Alert)
-                    
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-                    
-                    self.presentViewController(alert, animated: true, completion: nil)
-                    
-                    
-            }
+                    self.showEmailError()
+                }
                 else if(!self.isValidPassword(passwordField.text!)){
                     
                     let alert = UIAlertController(title: "Password Error", message: "Please enter a password that has least 6 characters", preferredStyle: UIAlertControllerStyle.Alert)
@@ -142,12 +193,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
                     
                 else{
                     FIRAuth.auth()?.createUserWithEmail(emailField.text!, password: self.password.text!, completion: { (user, error) in
-                        if error == nil {
-                            // Lazy-Y: We don't need to auth user now
-                            
-//                            self.ref.authUser(emailField.text, password: passwordField.text, withCompletionBlock: { (error, auth) in
-//                                
-//                            })
+                        if let error = error{
+                            self.showError(error.localizedDescription)
+                        }
+                        else {
+                            if let user = user{
+                                user.sendEmailVerificationWithCompletion({ (error) in
+                                    if let error = error{
+                                        self.showError(error.localizedDescription)
+                                    }
+                                    else {
+                                        self.showSuccess("A verification Email has been sent to your Email. Please verify your Email.")
+                                    }
+                                })
+                            }
+                            else {
+                                self.showError("Cannot signup with this user")
+                            }
                         }
                     })
                 }

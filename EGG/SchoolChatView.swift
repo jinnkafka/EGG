@@ -48,7 +48,7 @@ class SchoolChatViewController: JSQMessagesViewController, UIGestureRecognizerDe
     func setupFirebase() {
         
         // *** STEP 4: RECEIVE MESSAGES FROM FIREBASE (limited to latest 25 messages)
-        messagesRef.queryLimitedToFirst(25).observeEventType(.ChildAdded, withBlock: { (snapshot) in
+        messagesRef.queryOrderedByKey().queryLimitedToLast(25).observeEventType(.ChildAdded, withBlock: { (snapshot) in
 //        })
 //        messagesRef.queryLimitedToNumberOfChildren(25).observeEventType(.ChildAdded, withBlock: { (snapshot) in
             let text = snapshot.value!["text"] as? String
