@@ -19,7 +19,7 @@ class EventTableViewCell: UITableViewCell {
     
     var event: Event!
     
-    func configureCell(event: Event) {
+    func configureCell(_ event: Event) {
         self.event = event
         
         // Set the labels and textView.
@@ -32,19 +32,19 @@ class EventTableViewCell: UITableViewCell {
         
     }
     
-    func loadImageFromUrl(url: String, view: UIImageView){
+    func loadImageFromUrl(_ url: String, view: UIImageView){
         
         // Create Url from string
-        let url = NSURL(string: url)!
+        let url = URL(string: url)!
         
         // Download task:
         // - sharedSession = global NSURLCache, NSHTTPCookieStorage and NSURLCredentialStorage objects.
-        let task = NSURLSession.sharedSession().dataTaskWithURL(url) { (responseData, responseUrl, error) -> Void in
+        let task = URLSession.shared().dataTask(with: url) { (responseData, responseUrl, error) -> Void in
             // if responseData is not null...
             if let data = responseData{
                 
                 // execute in UI thread
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                DispatchQueue.main.async(execute: { () -> Void in
                     view.image = UIImage(data: data)
                 })
             }

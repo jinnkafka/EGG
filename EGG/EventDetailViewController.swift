@@ -22,8 +22,8 @@ class EventDetailViewController: UIViewController {
         self.title = nameString
         
         // Load detail web view
-        let requestURL = NSURL(string: detailString!)
-        let request = NSURLRequest(URL: requestURL!)
+        let requestURL = URL(string: detailString!)
+        let request = URLRequest(url: requestURL!)
         detailWebView.loadRequest(request)
     }
     

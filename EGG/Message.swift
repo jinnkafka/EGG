@@ -12,7 +12,7 @@ import JSQMessagesViewController
 class Message : NSObject, JSQMessageData {
     var text_: String
     var sender_: String
-    var date_: NSDate
+    var date_: Date
     var imageUrl_: String?
     
     convenience init(text: String?, sender: String?) {
@@ -22,7 +22,7 @@ class Message : NSObject, JSQMessageData {
     init(text: String?, sender: String?, imageUrl: String?) {
         self.text_ = text!
         self.sender_ = sender!
-        self.date_ = NSDate()
+        self.date_ = Date()
         self.imageUrl_ = imageUrl
     }
     func senderDisplayName() -> String! {
@@ -36,7 +36,7 @@ class Message : NSObject, JSQMessageData {
         return sender_;
     }
     
-    func date() -> NSDate! {
+    func date() -> Date! {
         return date_;
     }
     

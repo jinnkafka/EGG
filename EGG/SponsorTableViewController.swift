@@ -19,7 +19,7 @@ class SponsorTableViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
-        ref.observeSingleEventOfType(.Value, withBlock:  { (snapshot) in
+        ref.observeSingleEvent(of: .value, with:  { (snapshot) in
             // The snapshot is a current look at our jokes data.
             
             print(snapshot.value)
@@ -38,7 +38,7 @@ class SponsorTableViewController: UITableViewController {
                         
                         // Items are returned chronologically, but it's more fun with the newest jokes first.
                         
-                        self.sponsors.insert(sponsor, atIndex: 0)
+                        self.sponsors.insert(sponsor, at: 0)
                     }
                 }
                 
@@ -55,20 +55,20 @@ class SponsorTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sponsors.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let sponsor = sponsors[indexPath.row]
+        let sponsor = sponsors[(indexPath as NSIndexPath).row]
         
         // We are using a custom cell.
-        if let cell = tableView.dequeueReusableCellWithIdentifier("sponsorCell") as? SponsorTableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "sponsorCell") as? SponsorTableViewCell {
             
             // Send the single event to configureCell() in SponsorTableViewCell.
             

@@ -27,23 +27,23 @@ class SchoolTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return schoolList.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
         // We are using a custom cell.
-        if let cell = tableView.dequeueReusableCellWithIdentifier("courseCell") as? SchoolTableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "courseCell") as? SchoolTableViewCell {
             
             // Send the single event to configureCell() in SponsorTableViewCell.
             
-            cell.configureCell(schoolImageList[indexPath.row], schoolName: schoolList[indexPath.row])
+            cell.configureCell(schoolImageList[(indexPath as NSIndexPath).row], schoolName: schoolList[(indexPath as NSIndexPath).row])
             
             
             return cell
@@ -56,14 +56,14 @@ class SchoolTableViewController: UITableViewController {
         
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "schoolToChat") {
             
             
             // Get the cell index for current cell
             var selectedItems: [AnyObject] = self.tableView.indexPathsForSelectedRows!
-            let selectedItem: NSIndexPath = selectedItems[0] as! NSIndexPath
-            let selectedIndex: Int = selectedItem.row
+            let selectedItem: IndexPath = selectedItems[0] as! IndexPath
+            let selectedIndex: Int = (selectedItem as NSIndexPath).row
             
             
             // Get event name and detail URL for current cell

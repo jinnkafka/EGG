@@ -17,9 +17,9 @@ class SchoolTableViewCell: UITableViewCell {
     
     var schoolName: String?
     
-    func configureCell(relatedImage: UIImage, schoolName: String) {
+    func configureCell(_ relatedImage: UIImage, schoolName: String) {
         
-        schoolImage.contentMode = UIViewContentMode.ScaleAspectFit
+        schoolImage.contentMode = UIViewContentMode.scaleAspectFit
         
         schoolImage.image = relatedImage
         

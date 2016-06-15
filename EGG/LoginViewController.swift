@@ -38,12 +38,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
         view.endEditing(true)
     }
     
-    func showTextAlert(title:String, msg:String, doneMsg:String, doneAction: (String) -> Void){
-        let alert = UIAlertController(title: title, message: msg, preferredStyle: .Alert)
-        let sendAction = UIAlertAction(title: "Send", style: .Default) { (action) in
+    func showTextAlert(_ title:String, msg:String, doneMsg:String, doneAction: (String) -> Void){
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        let sendAction = UIAlertAction(title: "Send", style: .default) { (action) in
             let emailField = alert.textFields![0]
             if self.isValidEmail(emailField.text!){
-                FIRAuth.auth()?.sendPasswordResetWithEmail(emailField.text!, completion: { (error) in
+                FIRAuth.auth()?.sendPasswordReset(withEmail: emailField.text!, completion: { (error) in
                     if let error = error{
                         self.showError(error.localizedDescription)
                     }
@@ -56,15 +56,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
                 self.showEmailError()
             }
         }
-        alert.addTextFieldWithConfigurationHandler { (textField) in
+        alert.addTextField { (textField) in
             textField.placeholder = "Enter your usc email"
         }
         alert.addAction(sendAction)
-        presentViewController(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func resetAction(sender: AnyObject) {
-        showTextAlert("Password reset", msg: "Please enter your password", doneMsg: "A password reset email has been delivered to your Email account.", doneAction: showSuccess)
+    @IBAction func resetAction(_ sender: AnyObject) {
+        showTextAlert("Password reset", msg: "Please enter your Email", doneMsg: "A password reset email has been delivered to your Email account.", doneAction: showSuccess)
     }
     
     override func viewDidLoad() {
@@ -79,7 +79,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
         
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         try! FIRAuth.auth()?.signOut()
@@ -95,25 +95,25 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
     }
     
     // MARK: Actions
-    @IBAction func loginDidTouch(sender: AnyObject) {
+    @IBAction func loginDidTouch(_ sender: AnyObject) {
         
-        FIRAuth.auth()?.signInWithEmail(username.text!, password: password.text!, completion: { (user, error) in
+        FIRAuth.auth()?.signIn(withEmail: username.text!, password: password.text!, completion: { (user, error) in
             if error != nil {
                 // an error occured while attempting login
-                let alert = UIAlertController(title: "Login Error", message: "Please check your username and password", preferredStyle: UIAlertControllerStyle.Alert)
+                let alert = UIAlertController(title: "Login Error", message: "Please check your username and password", preferredStyle: UIAlertControllerStyle.alert)
                 
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                 
-                self.presentViewController(alert, animated: true, completion: nil)
+                self.present(alert, animated: true, completion: nil)
                 
             } else {
-                if user?.emailVerified == true{
+                if user?.isEmailVerified == true{
                     // user is logged in, check authData for data
                     print("Logged in");
-                    self.performSegueWithIdentifier(self.toAllTabs, sender: nil)
+                    self.performSegue(withIdentifier: self.toAllTabs, sender: nil)
                 }
                 else {
-                    user?.sendEmailVerificationWithCompletion({ (error) in
+                    user?.sendEmailVerification(completion: { (error) in
                         if let error = error{
                             self.showError(error.localizedDescription)
                         }
@@ -127,15 +127,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
         
     }
     
-    func isValidEmail(testStr:String) -> Bool {
+    func isValidEmail(_ testStr:String) -> Bool {
         // println("validate calendar: \(testStr)")
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         
-        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailTest.evaluateWithObject(testStr)
+        let emailTest = Predicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: testStr)
     }
     
-    func isValidPassword(testStr:String)->Bool {
+    func isValidPassword(_ testStr:String)->Bool {
         
         if (testStr.characters.count >= 6){
             
@@ -148,30 +148,30 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
     }
     
     private func showEmailError(){
-        let alert = UIAlertController(title: "Email Address Error", message: "Please check your email address", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
+        let alert = UIAlertController(title: "Email Address Error", message: "Please check your email address", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
-    func showSuccess(msg:String){
-        let alert = UIAlertController(title: "Done", message: msg, preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
+    func showSuccess(_ msg:String){
+        let alert = UIAlertController(title: "Done", message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
-    func showError(msg:String){
-        let alert = UIAlertController(title: "Error", message: msg, preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
+    func showError(_ msg:String){
+        let alert = UIAlertController(title: "Error", message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func signUpDidTouch(sender: AnyObject) {
+    @IBAction func signUpDidTouch(_ sender: AnyObject) {
         let alert = UIAlertController(title: "Register",
             message: "Register",
-            preferredStyle: .Alert)
+            preferredStyle: .alert)
         
         let saveAction = UIAlertAction(title: "Register",
-            style: .Default) { (action: UIAlertAction!) -> Void in
+            style: .default) { (action: UIAlertAction!) -> Void in
                 
                 let emailField = alert.textFields![0]
                 let passwordField = alert.textFields![1]
@@ -181,24 +181,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
                 }
                 else if(!self.isValidPassword(passwordField.text!)){
                     
-                    let alert = UIAlertController(title: "Password Error", message: "Please enter a password that has least 6 characters", preferredStyle: UIAlertControllerStyle.Alert)
+                    let alert = UIAlertController(title: "Password Error", message: "Please enter a password that has least 6 characters", preferredStyle: UIAlertControllerStyle.alert)
                     
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                     
-                    self.presentViewController(alert, animated: true, completion: nil)
+                    self.present(alert, animated: true, completion: nil)
                     
                     
                 }
                     
                     
                 else{
-                    FIRAuth.auth()?.createUserWithEmail(emailField.text!, password: self.password.text!, completion: { (user, error) in
+                    FIRAuth.auth()?.createUser(withEmail: emailField.text!, password: self.password.text!, completion: { (user, error) in
                         if let error = error{
                             self.showError(error.localizedDescription)
                         }
                         else {
                             if let user = user{
-                                user.sendEmailVerificationWithCompletion({ (error) in
+                                user.sendEmailVerification(completion: { (error) in
                                     if let error = error{
                                         self.showError(error.localizedDescription)
                                     }
@@ -217,34 +217,34 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
         }
     
         let cancelAction = UIAlertAction(title: "Cancel",
-            style: .Default) { (action: UIAlertAction!) -> Void in
+            style: .default) { (action: UIAlertAction!) -> Void in
         }
         
-        alert.addTextFieldWithConfigurationHandler {
+        alert.addTextField {
             (textEmail) -> Void in
             textEmail.placeholder = "Enter your usc email"
         }
         
-        alert.addTextFieldWithConfigurationHandler {
+        alert.addTextField {
             (textPassword) -> Void in
-            textPassword.secureTextEntry = true
+            textPassword.isSecureTextEntry = true
             textPassword.placeholder = "Enter your password"
         }
         
         alert.addAction(saveAction)
         alert.addAction(cancelAction)
         
-        presentViewController(alert,
+        present(alert,
             animated: true,
             completion: nil)
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool // called when 'return' key pressed. return NO to ignore.
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool // called when 'return' key pressed. return NO to ignore.
     {
         
         self.view.endEditing(true)
         
-        login.sendActionsForControlEvents(.TouchUpInside)
+        login.sendActions(for: .touchUpInside)
         
         return false;
     }

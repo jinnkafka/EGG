@@ -28,10 +28,10 @@ class SchoolChatViewController: JSQMessagesViewController, UIGestureRecognizerDe
     
     private func setupBubbles() {
         let factory = JSQMessagesBubbleImageFactory()
-        outgoingBubbleImageView = factory.outgoingMessagesBubbleImageWithColor(
-            UIColor.jsq_messageBubbleBlueColor())
-        incomingBubbleImageView = factory.incomingMessagesBubbleImageWithColor(
-            UIColor.jsq_messageBubbleLightGrayColor())
+        outgoingBubbleImageView = factory?.outgoingMessagesBubbleImage(
+            with: UIColor.jsq_messageBubbleBlue())
+        incomingBubbleImageView = factory?.incomingMessagesBubbleImage(
+            with: UIColor.jsq_messageBubbleLightGray())
     }
     
     func dismissKeyboard() {
@@ -39,7 +39,7 @@ class SchoolChatViewController: JSQMessagesViewController, UIGestureRecognizerDe
         view.endEditing(true)
     }
     
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
 
             return true
         
@@ -48,9 +48,7 @@ class SchoolChatViewController: JSQMessagesViewController, UIGestureRecognizerDe
     func setupFirebase() {
         
         // *** STEP 4: RECEIVE MESSAGES FROM FIREBASE (limited to latest 25 messages)
-        messagesRef.queryOrderedByKey().queryLimitedToLast(25).observeEventType(.ChildAdded, withBlock: { (snapshot) in
-//        })
-//        messagesRef.queryLimitedToNumberOfChildren(25).observeEventType(.ChildAdded, withBlock: { (snapshot) in
+        messagesRef.queryOrderedByKey().queryLimited(toLast: 25).observe(.childAdded, with: { (snapshot) in
             let text = snapshot.value!["text"] as? String
             let sender = snapshot.value!["sender"] as? String
             //let imageUrl = snapshot.value["imageUrl"] as? String
@@ -61,7 +59,7 @@ class SchoolChatViewController: JSQMessagesViewController, UIGestureRecognizerDe
         })
     }
     
-    func sendMessage(text: String!, sender: String!) {
+    func sendMessage(_ text: String!, sender: String!) {
         // *** STEP 3: ADD A MESSAGE TO FIREBASE
         messagesRef.childByAutoId().setValue([
             "text":text,
@@ -70,13 +68,13 @@ class SchoolChatViewController: JSQMessagesViewController, UIGestureRecognizerDe
             ])
     }
     
-    func tempSendMessage(text: String!, sender: String!) {
+    func tempSendMessage(_ text: String!, sender: String!) {
         let message = Message(text: text, sender: sender)//, imageUrl: senderImageUrl)
         messages.append(message)
     }
     
     
-    func setupAvatarImage(name: String, imageUrl: String?, incoming: Bool) {
+    func setupAvatarImage(_ name: String, imageUrl: String?, incoming: Bool) {
         //        if let stringUrl = imageUrl {
         //            if let url = NSURL(string: stringUrl) {
         //                if let data = NSData(contentsOfURL: url) {
@@ -93,7 +91,7 @@ class SchoolChatViewController: JSQMessagesViewController, UIGestureRecognizerDe
         setupAvatarColor(name, incoming: incoming)
     }
     
-    func setupAvatarColor(name: String, incoming: Bool) {
+    func setupAvatarColor(_ name: String, incoming: Bool) {
         
         let diameter = incoming ? UInt(collectionView!.collectionViewLayout.incomingAvatarViewSize.width) : UInt(collectionView!.collectionViewLayout.outgoingAvatarViewSize.width)
         
@@ -104,8 +102,8 @@ class SchoolChatViewController: JSQMessagesViewController, UIGestureRecognizerDe
         let color = UIColor(red: r, green: g, blue: b, alpha: 0.5)
         
         let nameLength = name.characters.count
-        let initials : String? = name.substringToIndex(senderId.startIndex.advancedBy(min(3, nameLength)))
-        let userImage = JSQMessagesAvatarImageFactory.avatarImageWithUserInitials(initials, backgroundColor: color, textColor: UIColor.blackColor(), font: UIFont.systemFontOfSize(CGFloat(13)), diameter: diameter)
+        let initials : String? = (name as NSString).substring(to: min(3, nameLength))
+        let userImage = JSQMessagesAvatarImageFactory.avatarImage(withUserInitials: initials, backgroundColor: color, textColor: UIColor.black(), font: UIFont.systemFont(ofSize: CGFloat(13)), diameter: diameter)
         avatars[name] = userImage
     }
     
@@ -140,7 +138,7 @@ class SchoolChatViewController: JSQMessagesViewController, UIGestureRecognizerDe
     }
     
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         collectionView!.collectionViewLayout.springinessEnabled = false
     }
@@ -152,12 +150,12 @@ class SchoolChatViewController: JSQMessagesViewController, UIGestureRecognizerDe
     
     //view will disappear not written yet
     
-    func receivedMessagePressed(sender: UIBarButtonItem) {
+    func receivedMessagePressed(_ sender: UIBarButtonItem) {
         // Simulate reciving message
         showTypingIndicator = !showTypingIndicator
-        scrollToBottomAnimated(true)
+        scrollToBottom(animated: true)
     }
-    override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
+    override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
         
         sendMessage(text, sender: senderId)
@@ -165,22 +163,22 @@ class SchoolChatViewController: JSQMessagesViewController, UIGestureRecognizerDe
         finishSendingMessage()
     }
     
-    override func didPressAccessoryButton(sender: UIButton!) {
+    override func didPressAccessoryButton(_ sender: UIButton!) {
         print("Camera pressed!")
     }
     
     
-    override func collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
-        return messages[indexPath.item]
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
+        return messages[indexPath.item!]
     }
     
-    override func collectionView(collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageBubbleImageDataSource! {
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
         
 //
 //    }
 //    
 //    override func collectionView(collectionView: JSQMessagesCollectionView!, bubbleImageViewForItemAtIndexPath indexPath: NSIndexPath!) -> UIImageView! {
-        let message = messages[indexPath.item]
+        let message = messages[indexPath.item!]
         
         if message.senderId() == senderId {
             return UIImageView(image: outgoingBubbleImageView.messageBubbleImage, highlightedImage: outgoingBubbleImageView.messageBubbleHighlightedImage)
@@ -190,12 +188,12 @@ class SchoolChatViewController: JSQMessagesViewController, UIGestureRecognizerDe
         return UIImageView(image: incomingBubbleImageView.messageBubbleImage, highlightedImage: incomingBubbleImageView.messageBubbleHighlightedImage)
     }
     
-    override func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
 //
 //    }
 //    
 //    override func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageViewForItemAtIndexPath indexPath: NSIndexPath!) -> UIImageView! {
-        let message = messages[indexPath.item]
+        let message = messages[indexPath.item!]
         if let avatar = avatars[message.senderId()] {
             return UIImageView(image: avatar.avatarImage)
         } else {
@@ -204,18 +202,18 @@ class SchoolChatViewController: JSQMessagesViewController, UIGestureRecognizerDe
         }
     }
     
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return messages.count
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = super.collectionView(collectionView, cellForItemAtIndexPath: indexPath) as! JSQMessagesCollectionViewCell
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! JSQMessagesCollectionViewCell
         
-        let message = messages[indexPath.item]
+        let message = messages[(indexPath as NSIndexPath).item]
         if message.senderId() == senderId {
-            cell.textView!.textColor = UIColor.blackColor()
+            cell.textView!.textColor = UIColor.black()
         } else {
-            cell.textView!.textColor = UIColor.whiteColor()
+            cell.textView!.textColor = UIColor.white()
         }
         
         let attributes = [NSForegroundColorAttributeName:cell.textView!.tintColor, NSUnderlineStyleAttributeName: 1]
@@ -229,8 +227,8 @@ class SchoolChatViewController: JSQMessagesViewController, UIGestureRecognizerDe
     
     
     // View  usernames above bubbles
-    override func collectionView(collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> NSAttributedString! {
-        let message = messages[indexPath.item];
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath!) -> AttributedString! {
+        let message = messages[indexPath.item!];
         
         // Sent by me, skip
         if message.senderId() == senderId {
@@ -239,17 +237,17 @@ class SchoolChatViewController: JSQMessagesViewController, UIGestureRecognizerDe
         
         // Same as previous sender, skip
         if indexPath.item > 0 {
-            let previousMessage = messages[indexPath.item - 1];
+            let previousMessage = messages[indexPath.item! - 1];
             if previousMessage.senderId() == message.senderId() {
                 return nil;
             }
         }
         
-        return NSAttributedString(string:message.senderId())
+        return AttributedString(string:message.senderId())
     }
     
-    override func collectionView(collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
-        let message = messages[indexPath.item]
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAt indexPath: IndexPath!) -> CGFloat {
+        let message = messages[indexPath.item!]
         
         // Sent by me, skip
         if message.senderId() == senderId {
@@ -258,7 +256,7 @@ class SchoolChatViewController: JSQMessagesViewController, UIGestureRecognizerDe
         
         // Same as previous sender, skip
         if indexPath.item > 0 {
-            let previousMessage = messages[indexPath.item - 1];
+            let previousMessage = messages[indexPath.item! - 1];
             if previousMessage.senderId() == message.senderId() {
                 return CGFloat(0.0);
             }

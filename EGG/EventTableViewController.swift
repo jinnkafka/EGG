@@ -20,7 +20,7 @@ class EventTableViewController: UITableViewController {
         
         try! FIRAuth.auth()?.signOut()
         
-        performSegueWithIdentifier("backToLogin", sender: self)
+        performSegue(withIdentifier: "backToLogin", sender: self)
         
         
     }
@@ -33,14 +33,14 @@ class EventTableViewController: UITableViewController {
         //right bar item
         let logout = UIBarButtonItem(
             title: "Log out",
-            style: .Plain,
+            style: .plain,
             target: self,
             action: #selector(EventTableViewController.logout)
         )
         
         self.navigationItem.rightBarButtonItem = logout
     
-        ref.observeSingleEventOfType(.Value, withBlock:  { (snapshot) in
+        ref.observeSingleEvent(of: .value, with:  { (snapshot) in
             
             // The snapshot is a current look at our jokes data.
             
@@ -60,7 +60,7 @@ class EventTableViewController: UITableViewController {
                         
                         // Items are returned chronologically, but it's more fun with the newest jokes first.
                         
-                        self.events.insert(event, atIndex: 0)
+                        self.events.insert(event, at: 0)
                     }
                 }
                 
@@ -78,21 +78,21 @@ class EventTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return events.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let event = events[indexPath.row]
+        let event = events[(indexPath as NSIndexPath).row]
         
         // We are using a custom cell.
         
-        if let cell = tableView.dequeueReusableCellWithIdentifier("eventCell") as? EventTableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell") as? EventTableViewCell {
             
             // Send the single event to configureCell() in EventTableViewCell.
             
@@ -108,14 +108,14 @@ class EventTableViewController: UITableViewController {
         
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "eventDetail") {
             //var event: Event!
             
             // Get the cell index for current cell
             var selectedItems: [AnyObject] = self.tableView.indexPathsForSelectedRows!
-            let selectedItem: NSIndexPath = selectedItems[0] as! NSIndexPath
-            let selectedIndex: Int = selectedItem.row
+            let selectedItem: IndexPath = selectedItems[0] as! IndexPath
+            let selectedIndex: Int = (selectedItem as NSIndexPath).row
             
             let selectedEvent = events[selectedIndex]
             
