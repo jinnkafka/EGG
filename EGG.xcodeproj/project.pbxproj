@@ -23,7 +23,6 @@
 		FD762A881D0925C6000ED15C /* SchoolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD762A851D0925C6000ED15C /* SchoolTableViewCell.swift */; };
 		FD762A8D1D0925DD000ED15C /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD762A8A1D0925DD000ED15C /* Event.swift */; };
 		FD762A8E1D0925DD000ED15C /* Sponsor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD762A8B1D0925DD000ED15C /* Sponsor.swift */; };
-		FD762A8F1D0925DD000ED15C /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD762A8C1D0925DD000ED15C /* Message.swift */; };
 		FD762A921D09261C000ED15C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD762A911D09261C000ED15C /* Assets.xcassets */; };
 		FDC8CCBF1D09219100D8C794 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC8CCBE1D09219100D8C794 /* AppDelegate.swift */; };
 		FDC8CCC71D09219100D8C794 /* EGG.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FDC8CCC51D09219100D8C794 /* EGG.xcdatamodeld */; };
@@ -73,7 +72,6 @@
 		FD762A851D0925C6000ED15C /* SchoolTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolTableViewCell.swift; sourceTree = "<group>"; };
 		FD762A8A1D0925DD000ED15C /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		FD762A8B1D0925DD000ED15C /* Sponsor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sponsor.swift; sourceTree = "<group>"; };
-		FD762A8C1D0925DD000ED15C /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		FD762A911D09261C000ED15C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD762A941D0926F2000ED15C /* EGG-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EGG-Bridging-Header.h"; sourceTree = "<group>"; };
 		FDC8CCBB1D09219100D8C794 /* EGG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EGG.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,7 +156,6 @@
 			children = (
 				FD762A8A1D0925DD000ED15C /* Event.swift */,
 				FD762A8B1D0925DD000ED15C /* Sponsor.swift */,
-				FD762A8C1D0925DD000ED15C /* Message.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -517,7 +514,6 @@
 				FD762A881D0925C6000ED15C /* SchoolTableViewCell.swift in Sources */,
 				FD150D7B1D0A984900BACDBE /* SchoolChatView.swift in Sources */,
 				FD762A7E1D092599000ED15C /* EventTableViewController.swift in Sources */,
-				FD762A8F1D0925DD000ED15C /* Message.swift in Sources */,
 				FDC8CCBF1D09219100D8C794 /* AppDelegate.swift in Sources */,
 				FD762A871D0925C6000ED15C /* SponsorTableViewCell.swift in Sources */,
 				FD762A811D092599000ED15C /* SponsorTableViewController.swift in Sources */,
